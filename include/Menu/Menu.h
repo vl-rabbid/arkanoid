@@ -6,7 +6,7 @@
 #include "Game/States.h"
 #include "Game/Config.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     enum class MenuType
     {

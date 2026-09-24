@@ -1,7 +1,7 @@
 #include "Menu/UIComponents.h"
 #include <cmath>
 
-namespace SnakeGame
+namespace Arkanoid
 {
 
     void Button::Init(const Resources &resources)
@@ -20,7 +20,7 @@ namespace SnakeGame
     void Button::SetPosition(int positionY)
     {
         sf::Vector2f position;
-        position.x = static_cast<float>(std::round(LEVEL_WIDTH * CELL_SIZE / 2));
+        position.x = static_cast<float>(std::round(RENDER_WIDTH / 2));
         position.y = static_cast<float>(positionY);
         spriteEnabled.setPosition(position);
         spriteDisabled.setPosition(position);
@@ -59,7 +59,7 @@ namespace SnakeGame
     void LevelButton::Init(const Resources &resources, int positionX)
     {
         SetDefaultText(resources, levelNameText, "level");
-        levelNameFrame.setTexture(resources.hudLevelName);
+        levelNameFrame.setTexture(resources.levelNameFrame);
         background.setTexture(resources.levelSelectButton);
         previewFrame.setTexture(resources.levelPreviewFrame);
 

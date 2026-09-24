@@ -1,6 +1,6 @@
 #include "Menu/Menu.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     MenuCommand Menu::HandleInput(const sf::Event &event)
     {
@@ -173,7 +173,7 @@ namespace SnakeGame
         menus[MenuState::Main] =
             {
                 MenuState::Main,
-                "Snake Game",
+                "Arkanoid",
                 MenuType::FullMenu,
                 {{"Play",
                   MenuAction::SwitchMenuState,
@@ -211,9 +211,6 @@ namespace SnakeGame
                 {{"Restart",
                   MenuAction::ResetGame,
                   0},
-                 {"Difficulty",
-                  MenuAction::SwitchMenuState,
-                  static_cast<int>(MenuState::Difficulty)},
                  {"Back to menu",
                   MenuAction::SwitchMenuState,
                   static_cast<int>(MenuState::Main)}},
@@ -261,30 +258,6 @@ namespace SnakeGame
                   MenuAction::PreviousMenu,
                   0}}};
 
-        menus[MenuState::Difficulty] =
-            {
-                MenuState::Difficulty,
-                "Difficulty",
-                MenuType::SubMenu,
-                {{"Very Easy",
-                  MenuAction::SetDifficulty,
-                  static_cast<int>(GameDifficulty::VeryEasy)},
-                 {"Easy",
-                  MenuAction::SetDifficulty,
-                  static_cast<int>(GameDifficulty::Easy)},
-                 {"Normal",
-                  MenuAction::SetDifficulty,
-                  static_cast<int>(GameDifficulty::Normal)},
-                 {"Hard",
-                  MenuAction::SetDifficulty,
-                  static_cast<int>(GameDifficulty::Hard)},
-                 {"Very Hard",
-                  MenuAction::SetDifficulty,
-                  static_cast<int>(GameDifficulty::VeryHard)},
-                 {"Back",
-                  MenuAction::PreviousMenu,
-                  0}}};
-
         menus[MenuState::LevelSelect] =
             {
                 MenuState::LevelSelect,
@@ -293,9 +266,6 @@ namespace SnakeGame
                 {{"Start Game",
                   MenuAction::StartGame,
                   0},
-                 {"Difficulty",
-                  MenuAction::SwitchMenuState,
-                  static_cast<int>(MenuState::Difficulty)},
                  {"Leaderboard",
                   MenuAction::SwitchMenuState,
                   static_cast<int>(MenuState::Leaderboard)},

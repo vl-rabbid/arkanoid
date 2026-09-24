@@ -1,18 +1,8 @@
 #include "Game/GameMath.h"
 #include <cmath>
 
-namespace SnakeGame
+namespace Arkanoid
 {
-    void SetShapePosition(sf::RectangleShape &shape, const Position2D &position)
-    {
-        shape.setPosition(position.x * CELL_SIZE, (position.y + HUD_HEIGHT) * CELL_SIZE);
-    }
-
-    void SetSpritePosition(sf::Sprite &sprite, const Position2D &position)
-    {
-        sprite.setPosition(position.x * CELL_SIZE, (position.y + HUD_HEIGHT) * CELL_SIZE);
-    }
-
     void CenterTextOnSprite(sf::Text &text, const sf::Sprite &sprite)
     {
         text.setOrigin({std::round(text.getLocalBounds().width / 2), 0.f});

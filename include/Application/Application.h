@@ -3,7 +3,7 @@
 #include "Application/Renderer.h"
 #include "Application/AppRequest.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     class Application
     {

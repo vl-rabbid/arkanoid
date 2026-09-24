@@ -3,7 +3,7 @@
 #include "Game/Resources.h"
 #include "Game/GameMath.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     class Hud
     {
@@ -11,19 +11,12 @@ namespace SnakeGame
         Hud() = default;
 
         void Init(const Resources &resources);
-        void Update(std::string levelName, unsigned int score);
         void Draw(sf::RenderTexture &texture) const;
 
         void SetDelayText(const std::string &string);
         void DrawDelay(sf::RenderTexture &texture) const;
 
     private:
-        sf::Sprite background;
-        sf::Sprite levelNameFrame;
-        sf::Text levelNameText;
-        sf::Sprite scoreFrame;
-        sf::Text scoreText;
-
         sf::RectangleShape windowTint;
         sf::Text delayText;
         sf::Text delayTextShadow;

@@ -1,6 +1,6 @@
 #include "Application/Renderer.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     Renderer::~Renderer()
     {

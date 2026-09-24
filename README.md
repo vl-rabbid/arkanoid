@@ -1,4 +1,4 @@
-## Snake Game
+## Arkanoid
 An educational game written in C++ using SFML
 
 ### Build

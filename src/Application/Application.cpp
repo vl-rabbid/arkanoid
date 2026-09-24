@@ -1,6 +1,6 @@
 #include "Application/Application.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     void Application::Run()
     {

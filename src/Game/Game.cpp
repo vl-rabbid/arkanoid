@@ -2,7 +2,7 @@
 #include <cmath>
 #include <iostream>
 
-namespace SnakeGame
+namespace Arkanoid
 {
 	Game::Game()
 	{
@@ -51,18 +51,15 @@ namespace SnakeGame
 			break;
 		case GameState::MenuOverlay:
 			level.Draw(texture);
-			snake.Draw(texture);
 			hud.Draw(texture);
 			menu.Draw(texture);
 			break;
 		case GameState::GameLoop:
 			level.Draw(texture);
-			snake.Draw(texture);
 			hud.Draw(texture);
 			break;
 		case GameState::Delay:
 			level.Draw(texture);
-			snake.Draw(texture);
 			hud.Draw(texture);
 			hud.DrawDelay(texture);
 			break;
@@ -96,7 +93,6 @@ namespace SnakeGame
 				SetState(GameState::MenuOverlay);
 				menu.SetState(MenuState::Pause, config, leaderboard);
 			}
-			snake.HandleInput(event);
 			break;
 		default:
 			break;
@@ -145,85 +141,17 @@ namespace SnakeGame
 	void Game::ResetGame()
 	{
 		audio.StopMusic();
-		level.ResetState();
-		speed = static_cast<float>(config.difficulty);
 		SetScoreMultiplier();
-		snake.Reset(resources, level.GetSnakeSpawn(), level.GetSnakeSize(), level.GetMaxSnakeLength());
-		level.SpawnApple();
 		score = 0;
-		hud.Update(level.GetName(), score);
 	}
 
 	void Game::UpdateGame(const float deltaTime)
 	{
-		static float timer = 0.f;
-		float interval = 1.f / speed;
-
-		timer += deltaTime;
-		if (timer >= interval)
-		{
-			bool isDead = false;
-			Position2D oldTailPosition = snake.GetTailPosition();
-			snake.UpdatePosition();
-			Position2D headPosition = snake.GetHeadPosition();
-
-			if (level.GetState(headPosition) == CellType::Apple)
-			{
-				snake.Grow(resources);
-				level.SetState(headPosition, CellType::Snake);
-				score += scoreMultiplier;
-				hud.Update(level.GetName(), score);
-				if (snake.GetLength() < level.GetMaxSnakeLength())
-					level.SpawnApple();
-				audio.PlaySound(SoundID::AppleEaten, config.soundEnabled);
-			}
-			else
-			{
-				level.SetState(oldTailPosition, CellType::Empty);
-				if (level.GetState(headPosition) == CellType::Snake || level.GetState(headPosition) == CellType::Wall)
-				{
-					audio.PlaySound(SoundID::Wall, config.soundEnabled);
-					audio.PlaySound(SoundID::GameOver, config.soundEnabled);
-					isDead = true;
-					if (score > 0)
-						leaderboard.AddEntry(config.playerName, score);
-
-					audio.StopMusic();
-					StartDelay(MenuState::GameOver, DelayType::GameOver);
-				}
-				else
-				{
-					level.SetState(headPosition, CellType::Snake);
-				}
-			}
-			bool isMouthOpen = CellsBetween(headPosition, level.GetApplePosition()) <= 2;
-			snake.UpdateSprites(isDead, isMouthOpen);
-			timer -= interval;
-		}
 	}
 
 	void Game::SetScoreMultiplier()
 	{
-		switch (config.difficulty)
-		{
-		case GameDifficulty::VeryEasy:
-			scoreMultiplier = 2;
-			break;
-		case GameDifficulty::Easy:
-			scoreMultiplier = 4;
-			break;
-		case GameDifficulty::Normal:
-			scoreMultiplier = 6;
-			break;
-		case GameDifficulty::Hard:
-			scoreMultiplier = 8;
-			break;
-		case GameDifficulty::VeryHard:
-			scoreMultiplier = 10;
-			break;
-		default:
-			break;
-		}
+		scoreMultiplier = 2;
 	}
 
 	void Game::HandleMenuCommand(const MenuCommand &command)
@@ -272,13 +200,6 @@ namespace SnakeGame
 			config.windowResolution = static_cast<WindowResolution>(command.actionTarget);
 			SaveConfig(config);
 			request = {AppRequestType::SetWindowScale};
-			menu.SetMenuItems(config);
-			menu.PreviousMenu();
-			audio.PlaySound(SoundID::UISelect, config.soundEnabled);
-			break;
-		case MenuAction::SetDifficulty:
-			config.difficulty = static_cast<GameDifficulty>(command.actionTarget);
-			SaveConfig(config);
 			menu.SetMenuItems(config);
 			menu.PreviousMenu();
 			audio.PlaySound(SoundID::UISelect, config.soundEnabled);

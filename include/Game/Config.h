@@ -1,17 +1,8 @@
 #pragma once
 #include "Game/Constants.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
-    enum class GameDifficulty
-    {
-        VeryEasy = 4,
-        Easy = 5,
-        Normal = 6,
-        Hard = 8,
-        VeryHard = 9
-    };
-
     enum class WindowResolution
     {
         R720x540 = 3,
@@ -22,7 +13,6 @@ namespace SnakeGame
 
     struct Config
     {
-        GameDifficulty difficulty;
         WindowResolution windowResolution;
         std::string playerName;
         bool soundEnabled;

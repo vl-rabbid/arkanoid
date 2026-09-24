@@ -2,7 +2,7 @@
 #include <fstream>
 #include <filesystem>
 
-namespace SnakeGame
+namespace Arkanoid
 {
     bool Leaderboard::LoadFromFile(const LevelConfig &levelConfig)
     {

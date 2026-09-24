@@ -5,7 +5,7 @@
 #include "Game/Resources.h"
 #include "Menu/UIComponents.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     class MenuUI
     {

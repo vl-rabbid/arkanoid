@@ -3,7 +3,7 @@
 #include "Menu/MenuCommand.h"
 #include "Game/Leaderboard.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     struct LeaderboardUI
     {

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace SnakeGame
+namespace Arkanoid
 {
     enum class AppRequestType
     {

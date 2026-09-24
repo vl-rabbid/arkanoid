@@ -3,7 +3,7 @@
 #include <filesystem>
 #include <cmath>
 
-namespace SnakeGame
+namespace Arkanoid
 {
     void LevelSelect::Init(const Resources &resources)
     {
@@ -105,7 +105,6 @@ namespace SnakeGame
         {
             LevelConfig level;
             level.SetEmpty();
-            level.UpdatePreviewCells();
             levels.push_back(level);
         }
         LoadUI();

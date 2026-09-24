@@ -4,7 +4,7 @@
 #include "Game/LevelConfig.h"
 #include "Game/GameMath.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     struct LevelSelectUI
     {

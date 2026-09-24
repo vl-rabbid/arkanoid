@@ -3,7 +3,7 @@
 #include "Game/Constants.h"
 #include "Game/LevelConfig.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     struct LeaderboardEntry
     {

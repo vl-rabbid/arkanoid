@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(snake-game LANGUAGES CXX)
+project(arkanoid LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -23,24 +23,24 @@ file(GLOB_RECURSE SOURCES
 )
 
 #Executable
-add_executable(snake-game ${SOURCES})
+add_executable(arkanoid ${SOURCES})
 
 #Headers
 target_include_directories(
-    snake-game
+    arkanoid
     PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
 
 #Resources
 target_compile_definitions(
-    snake-game
+    arkanoid
     PRIVATE
     RESOURCES_PATH="${CMAKE_CURRENT_SOURCE_DIR}/resources/"
 )
 
 #Libraries
-target_link_libraries(snake-game PRIVATE
+target_link_libraries(arkanoid PRIVATE
     sfml-graphics
     sfml-window
     sfml-system
@@ -49,18 +49,18 @@ target_link_libraries(snake-game PRIVATE
 
 if(WIN32)
     add_custom_command(
-        TARGET snake-game POST_BUILD
+        TARGET arkanoid POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "$<TARGET_FILE:sfml-graphics>"
-            "$<TARGET_FILE_DIR:snake-game>"
+            "$<TARGET_FILE_DIR:arkanoid>"
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "$<TARGET_FILE:sfml-window>"
-            "$<TARGET_FILE_DIR:snake-game>"
+            "$<TARGET_FILE_DIR:arkanoid>"
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "$<TARGET_FILE:sfml-system>"
-            "$<TARGET_FILE_DIR:snake-game>"
+            "$<TARGET_FILE_DIR:arkanoid>"
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "$<TARGET_FILE:sfml-audio>"
-            "$<TARGET_FILE_DIR:snake-game>"
+            "$<TARGET_FILE_DIR:arkanoid>"
     )
 endif()

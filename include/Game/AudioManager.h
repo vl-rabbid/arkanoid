@@ -2,7 +2,7 @@
 #include <SFML/Audio.hpp>
 #include "Game/Resources.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     struct GameSound
     {
@@ -17,9 +17,6 @@ namespace SnakeGame
         UIMoveVertical,
         UIMoveHorizontal,
         UISelect,
-        AppleEaten,
-        Wall,
-        GameOver,
         Countdown,
         CountdownGo,
         Input,
@@ -43,9 +40,6 @@ namespace SnakeGame
         GameSound uiMoveVertical;
         GameSound uiMoveHorizontal;
         GameSound uiSelect;
-        GameSound appleEaten;
-        GameSound wall;
-        GameSound gameOver;
         GameSound countdown;
         GameSound countdownGo;
         GameSound input;

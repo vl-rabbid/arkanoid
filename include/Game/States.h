@@ -1,6 +1,6 @@
 #pragma once
 
-namespace SnakeGame
+namespace Arkanoid
 {
     enum class GameState
     {
@@ -17,7 +17,6 @@ namespace SnakeGame
         GameOver,
         Settings,
         Resolution,
-        Difficulty,
         LevelSelect,
         Leaderboard,
         SetPlayerName

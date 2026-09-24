@@ -1,6 +1,6 @@
 #pragma once
 
-namespace SnakeGame
+namespace Arkanoid
 {
     enum class MenuAction
     {
@@ -18,7 +18,6 @@ namespace SnakeGame
         ResumeGame,
         PreviousMenu,
         SetScreenScale,
-        SetDifficulty,
         ToggleSound,
         ToggleMusic,
         SavePlayerName,

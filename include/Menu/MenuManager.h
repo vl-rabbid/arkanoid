@@ -5,7 +5,7 @@
 #include "Menu/Menu.h"
 #include "Menu/MenuCommand.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     class MenuManager
     {

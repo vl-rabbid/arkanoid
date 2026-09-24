@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Game/Resources.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     class Button
     {

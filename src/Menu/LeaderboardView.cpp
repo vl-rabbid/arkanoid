@@ -1,6 +1,6 @@
 #include "Menu/LeaderboardView.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     void LeaderboardView::Init(const Resources &resources)
     {

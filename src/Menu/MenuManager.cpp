@@ -1,6 +1,6 @@
 #include "Menu/MenuManager.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
     void MenuManager::Init(Resources &resources)
     {
@@ -67,9 +67,6 @@ namespace SnakeGame
             leaderboardView.LoadUI(leaderboard);
             break;
         case MenuState::Resolution:
-            SetMenuItems(gameConfig);
-            break;
-        case MenuState::Difficulty:
             SetMenuItems(gameConfig);
             break;
         case MenuState::Settings:
@@ -146,9 +143,6 @@ namespace SnakeGame
         {
         case MenuState::Resolution:
             layers.back().SetSubMenuItems(static_cast<int>(config.windowResolution));
-            break;
-        case MenuState::Difficulty:
-            layers.back().SetSubMenuItems(static_cast<int>(config.difficulty));
             break;
         case MenuState::Settings:
             layers.back().SetSettingsItems(config.soundEnabled, config.musicEnabled);

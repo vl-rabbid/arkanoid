@@ -1,7 +1,7 @@
 #include "Game/AudioManager.h"
 #include <cassert>
 
-namespace SnakeGame
+namespace Arkanoid
 {
     void AudioManager::Init()
     {
@@ -9,13 +9,6 @@ namespace SnakeGame
         assert(uiMoveHorizontal.buffer.loadFromFile(std::string(RESOURCES_PATH) + "/audio/sfx_menu_b.wav"));
         assert(uiSelect.buffer.loadFromFile(std::string(RESOURCES_PATH) + "/audio/sfx_menu_select.wav"));
         uiSelect.volume = 80.f;
-        assert(appleEaten.buffer.loadFromFile(std::string(RESOURCES_PATH) + "/audio/sfx_apple.wav"));
-        appleEaten.volume = 80.f;
-        assert(wall.buffer.loadFromFile(std::string(RESOURCES_PATH) + "/audio/sfx_wall.wav"));
-        wall.volume = 60.f;
-        assert(gameOver.buffer.loadFromFile(std::string(RESOURCES_PATH) + "/audio/jingle_game_over.ogg"));
-        gameOver.volume = 10.f;
-        gameOver.trackNumber = 1;
         assert(countdown.buffer.loadFromFile(std::string(RESOURCES_PATH) + "/audio/sfx_countdown.wav"));
         countdown.volume = 70.f;
         assert(countdownGo.buffer.loadFromFile(std::string(RESOURCES_PATH) + "/audio/sfx_countdown_go.wav"));
@@ -70,15 +63,6 @@ namespace SnakeGame
             break;
         case SoundID::UISelect:
             return uiSelect;
-            break;
-        case SoundID::AppleEaten:
-            return appleEaten;
-            break;
-        case SoundID::Wall:
-            return wall;
-            break;
-        case SoundID::GameOver:
-            return gameOver;
             break;
         case SoundID::Countdown:
             return countdown;

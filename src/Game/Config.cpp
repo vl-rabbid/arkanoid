@@ -1,7 +1,7 @@
 #include "Game/Config.h"
 #include <fstream>
 
-namespace SnakeGame
+namespace Arkanoid
 {
     bool ConfigFileExists()
     {
@@ -20,7 +20,6 @@ namespace SnakeGame
 
     void SetDefaultConfig(Config &config)
     {
-        config.difficulty = GameDifficulty::Normal;
         config.windowResolution = WindowResolution::R960x720;
         config.playerName = "XYZ";
         config.soundEnabled = true;
@@ -42,9 +41,7 @@ namespace SnakeGame
                 std::string key = line.substr(0, pos);
                 std::string value = line.substr(pos + 1);
 
-                if (key == "difficulty")
-                    config.difficulty = static_cast<GameDifficulty>(std::stoi(value));
-                else if (key == "windowResolution")
+                if (key == "windowResolution")
                     config.windowResolution = static_cast<WindowResolution>(std::stoi(value));
                 else if (key == "playerName")
                     config.playerName = value;
@@ -64,7 +61,6 @@ namespace SnakeGame
         std::ofstream file(CONFIG_FILE_NAME);
         if (file.is_open())
         {
-            file << "difficulty=" << static_cast<int>(config.difficulty) << "\n";
             file << "windowResolution=" << static_cast<int>(config.windowResolution) << "\n";
             file << "playerName=" << config.playerName << "\n";
             file << "soundEnabled=" << static_cast<int>(config.soundEnabled) << "\n";

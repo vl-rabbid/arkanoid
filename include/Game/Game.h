@@ -2,7 +2,6 @@
 #include "Constants.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include "Game/Snake.h"
 #include "Game/Level.h"
 #include "Game/States.h"
 #include "Game/Resources.h"
@@ -13,7 +12,7 @@
 #include "Menu/MenuManager.h"
 #include "Application/AppRequest.h"
 
-namespace SnakeGame
+namespace Arkanoid
 {
 	class Game
 	{
@@ -49,8 +48,6 @@ namespace SnakeGame
 		Delay delay;
 		sf::Sprite background;
 		Level level;
-		Snake snake;
-		float speed;
 		int score;
 		int scoreMultiplier;
 		Leaderboard leaderboard;

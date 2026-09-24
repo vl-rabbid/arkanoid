@@ -1,6 +1,6 @@
 ﻿#include "Application/Application.h"
 
-using namespace SnakeGame;
+using namespace Arkanoid;
 
 int main()
 {

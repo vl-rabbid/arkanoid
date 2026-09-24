@@ -1,7 +1,7 @@
 #include "Menu/MenuUI.h"
 #include <cmath>
 
-namespace SnakeGame
+namespace Arkanoid
 {
     void MenuUI::Init(const Resources &resources)
     {
