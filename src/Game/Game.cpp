@@ -51,15 +51,18 @@ namespace Arkanoid
 			break;
 		case GameState::MenuOverlay:
 			level.Draw(texture);
+			paddle.Draw(texture);
 			hud.Draw(texture);
 			menu.Draw(texture);
 			break;
 		case GameState::GameLoop:
 			level.Draw(texture);
+			paddle.Draw(texture);
 			hud.Draw(texture);
 			break;
 		case GameState::Delay:
 			level.Draw(texture);
+			paddle.Draw(texture);
 			hud.Draw(texture);
 			hud.DrawDelay(texture);
 			break;
@@ -93,6 +96,7 @@ namespace Arkanoid
 				SetState(GameState::MenuOverlay);
 				menu.SetState(MenuState::Pause, config, leaderboard);
 			}
+			paddle.HandleInput(event);
 			break;
 		default:
 			break;
@@ -140,6 +144,7 @@ namespace Arkanoid
 
 	void Game::ResetGame()
 	{
+		paddle.Init(60.f);
 		audio.StopMusic();
 		SetScoreMultiplier();
 		score = 0;
@@ -147,6 +152,7 @@ namespace Arkanoid
 
 	void Game::UpdateGame(const float deltaTime)
 	{
+		paddle.Update(deltaTime);
 	}
 
 	void Game::SetScoreMultiplier()
@@ -183,7 +189,7 @@ namespace Arkanoid
 			break;
 		case MenuAction::StartGame:
 			StartGame(menu.GetSelectedLevelConfig());
-			StartDelay(GameState::GameLoop, DelayType::GameStart);
+			SetState(GameState::GameLoop);
 			break;
 		case MenuAction::ResetGame:
 			ResetGame();

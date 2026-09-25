@@ -11,6 +11,7 @@
 #include "Game/AudioManager.h"
 #include "Menu/MenuManager.h"
 #include "Application/AppRequest.h"
+#include "Paddle.h"
 
 namespace Arkanoid
 {
@@ -48,6 +49,7 @@ namespace Arkanoid
 		Delay delay;
 		sf::Sprite background;
 		Level level;
+		Paddle paddle;
 		int score;
 		int scoreMultiplier;
 		Leaderboard leaderboard;

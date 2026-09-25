@@ -22,6 +22,9 @@ namespace Arkanoid
 	const float DELAY_COUNTDOWN = 3.2f;
 	const float DELAY_GAME_OVER = 1.5f;
 
+	const float PADDLE_SPEED = 300.f;
+	const float PADDLE_HEIGHT = 10.f;
+
 	const sf::Color COLOR_TINT(0, 0, 0, 100);
 	const sf::Color COLOR_SHADOW(0, 0, 0, 150);
 	const sf::Color COLOR_TEXT(54, 46, 40);
